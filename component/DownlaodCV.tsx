@@ -1,12 +1,10 @@
-
+import Link from "next/link";
 
 const DownloadCV = () => {
     return (
-        <div className="p-[8px] bg-gray-700 lg:shadow-md  block text-white rounded-md font-medium text-[18px]">
-        <a href="./mycv.pdf" download="mycv.pdf">
+        <Link href={"/mycv.pdf"} download className="p-[8px] bg-gray-700 lg:shadow-md  block text-white rounded-md font-medium text-[18px]">
             Download CV
-        </a>
-        </div>
+        </Link>
 
     )
 }
