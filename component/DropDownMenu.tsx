@@ -28,7 +28,7 @@ const DropDownMenu = ({ displayMenu, setDisplayMenu }: DropDownMenuPropType) => 
         
             animate={{ opacity: displayMenu ? 1 : 0, translateX: displayMenu ? 0 : "-100%" }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="w-full flex border  justify-center top-0 fixed z-10 md:hidden block h-full">
+            className="w-full flex   justify-center top-0 fixed z-10 md:hidden block h-full">
             <div className="w-[80%]  bg-white   h-full px-2">
                 <div className="w-full h-[50px] flex items-center"><p className={` text-gray-800 text-[18px] pl-2`}>menu</p></div>
                 <ul className={`w-full flex flex-col gap-y-6 mt-4 text-gray-700 text-[18px]`}>
