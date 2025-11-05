@@ -25,7 +25,7 @@ const DropDownMenu = ({ displayMenu, setDisplayMenu }: DropDownMenuPropType) => 
 
     return (
         <motion.div
-        
+            initial={{ opacity: 0, translateX: "-100%" }}
             animate={{ opacity: displayMenu ? 1 : 0, translateX: displayMenu ? 0 : "-100%" }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="w-full flex   justify-center top-0 fixed z-10 md:hidden block h-full">
