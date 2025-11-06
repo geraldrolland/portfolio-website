@@ -5,7 +5,7 @@ import movie24 from "../public/movie24_image.png";
 const projects = [
     {
         title: "Movie24",
-        description: " This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one. This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one This is a description of project one",
+        description: "Movie24 is a fully responsive movie platform that offers a smooth and excellent user experience. Users can easily browse and search for movies, watch trailers, and download films for offline viewing. Designed for speed and functionality, Movie24 delivers seamless navigation across all devices, ensuring a functional and engaging streaming experience anytime, anywhere.",
         image: movie24,
         technologies: ["React", "TypeScript", "CSS", "HTML", "TailwindCss", "tmdb API"],
         link: "https://movie24-ui.vercel.app",

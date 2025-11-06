@@ -1,7 +1,7 @@
-
 "use client";
+
 import SocialLinks from "./SocialLinks";
-import { LocationEditIcon } from "lucide-react";
+import { IoLocationOutline } from "react-icons/io5";
 
 const Introduction = () => {
     return (
@@ -17,7 +17,7 @@ const Introduction = () => {
                 and continuous improvement throughout the development process.</p>
                 <div className="w-[300px] h-[55px] mt-10 flex">
                     <div className="flex flex-col justify-between items-center">
-                        <LocationEditIcon />
+                        <IoLocationOutline className="font-bold text-[18px]" />
                         <div className="w-[10px] h-[10px] mb-[5.7px] rounded-[5px] bg-green-600"></div>
                     </div>
                     <div className="flex pl-3 flex-col  justify-between gap-y-2">

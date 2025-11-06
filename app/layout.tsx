@@ -33,7 +33,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`w-[100%] overflow-x-hidden ${displayMenu === true ? 'overflow-y-hidden' : ''} min-h-screen relative ${poppins.className}`}>
+      <body className={`w-[100%] overflow-x-hidden ${displayMenu === true ? 'overflow-y-hidden' : ''} md:overflow-y-auto min-h-screen relative ${poppins.className}`}>
         <NavBar setDisplayMenu={setDisplayMenu} />
         <DropDownMenu displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
         {children}

@@ -1,26 +1,26 @@
 import Label from "./Label"
 import ExpCard from "./ExpCard";
+import houseIcon from "../public/house-logo.svg";
+
+
 
 const experience = [
     {
-        logo: "/logo.png",
-        position: "Lead software Engineer",
-        company: "Lead Tech",
-        duration: "Nov 2021 - Present",
+        logo: houseIcon,
+        position: "Lead Software Engineer",
+        company: "Global Tech",
+        duration: "Nov 2023 - Oct 2025",
         descriptions: [
-            "Leading a team of 10 software engineers to develop and maintain web applications.",
+            "Leading a team of 4 software engineers to develop and maintain web applications.",
             "Implementing best practices for software development and ensuring code quality.",
             "Collaborating with cross-functional teams to deliver high-quality software solutions.",
-
         ]
-
-
     },
     {
-        logo: "/logo.png",
+        logo: houseIcon,
         position: "Backend Engineer",
         company: "Lead Tech",
-        duration: "Nov 2021 - Present",
+        duration: "August 2021 - June 2022",
         descriptions: [
             "Leading a team of 10 software engineers to develop and maintain web applications.",
             "Implementing best practices for software development and ensuring code quality.",
@@ -31,10 +31,10 @@ const experience = [
 
     },
     {
-        logo: "/logo.png",
-        position: "software Engineer",
-        company: "Lead Tech",
-        duration: "Nov 2021 - Present",
+        logo: houseIcon,
+        position: "Intern Software Engineer",
+        company: "HNG",
+        duration: "Jan 2021 - May 2021",
         descriptions: [
             "Leading a team of 10 software engineers to develop and maintain web applications.",
             "Implementing best practices for software development and ensuring code quality.",
