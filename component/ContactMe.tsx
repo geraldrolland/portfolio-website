@@ -12,7 +12,7 @@ const ContactMe = () => {
             <section className="lg:min-w-[65%]   md:px-6 px-0 md:min-w-[75%]  flex md:justify-between justify-center min-w-[85%] flex-wrap gap-y-10 items-start">
                 <div className=" md:px-6 p-0 lg:order-1  order-2 ">
                     <ul className="w-[100%] flex flex-col gap-y-6">
-                        <a href="https://wa.me/2349050894145" target="_blank" className="h-[50px] hover:shadow-none hover:bg-gray-700 hover:text-white items-center transition-all duration-500 rounded-full bg-white shadow-md flex gap-x-6 p-4 block">
+                        <a href="https://wa.me/2349050894145" target="_blank" className="h-[50px] overflow-hidden hover:shadow-none hover:bg-gray-700 hover:text-white items-center transition-all duration-500 rounded-full bg-white shadow-md flex gap-x-6 p-4 block">
                             <Image height={25} width={27} src={whatsapIcon} alt="whatsapp image" />
                             <p>Get in touch</p>                            
                         </a>

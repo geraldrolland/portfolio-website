@@ -32,6 +32,8 @@ portfolio/
 ├── app/
 │   ├── page.tsx             # Home page
 │   ├── contact/             # Contact page with email integration
+│   ├── project/             # Project page 
+│   ├── experience/          # Experience page 
 │   ├── about/               # About section
 │   └── layout.tsx           # Global layout
 ├── components/              # Reusable UI components

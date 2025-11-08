@@ -25,7 +25,7 @@ const ExpCard = ({logo, position, company, duration, descriptions}: ExpCardPropT
                     }
                 </ul>
             </div>
-            <h3 className="text-gray-800 lg:w-[25%] text-[14px]">{duration}</h3>
+            <h3 className="text-gray-800 lg:text-right  lg:w-[25%] text-[14px]">{duration}</h3>
         </div>
         </>
     )
