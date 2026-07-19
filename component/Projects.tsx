@@ -8,7 +8,7 @@ const projects = [
         title: "AI Fake News Detector",
         description: " AI Fake News Project is a prototype solution for analyzing a webpage URL and predicting whether the extracted headlines look trustworthy or likely fake. The solution combines a FastAPI backend, a trained Keras/TensorFlow model, Selenium-based webpage scraping, and NLP preprocessing to provide a lightweight AI-powered fake-news detection workflow.",
         image: ai_img,
-        technologies: ["Fastapi", "mySQL", "Python", "Redis", "TensorFlow", "Scikit-learn", "Selenium", "BeautifulSoup4"],
+        technologies: ["Fastapi",  "mySQL", "Python", "Redis", "TensorFlow", "Scikit-learn", "Selenium", "BeautifulSoup4"],
         link: "https://github.com/geraldrolland/AI_FAKE_NEW_PROJECT",
         github: "https://github.com/geraldrolland/AI_FAKE_NEW_PROJECT"
     },
