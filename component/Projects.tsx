@@ -3,12 +3,13 @@ import ProjectCard from "./ProjectCard";
 import movie24 from "../public/movie24_image.png";
 import ai_img from "../public/ai_img.jpg"
 import query_mind_landing_page_img from "../public/query_mind_landing_page_img.png"
+import ai_veriscope_img from "../public/ai_veriscope_img.png"
 
 const projects = [
     {
-        title: "AI Fake News Detector",
+        title: "AI Veriscope",
         description: " AI Fake News Project is a prototype solution for analyzing a webpage URL and predicting whether the extracted headlines look trustworthy or likely fake. The solution combines a FastAPI backend, a trained Keras/TensorFlow model, Selenium-based webpage scraping, and NLP preprocessing to provide a lightweight AI-powered fake-news detection workflow.",
-        image: ai_img,
+        image: ai_veriscope_img,
         technologies: ["Fastapi",  "mySQL", "Python", "Redis", "TensorFlow", "Scikit-learn", "Selenium", "BeautifulSoup4"],
         link: "https://github.com/geraldrolland/AI_FAKE_NEW_PROJECT",
         github: "https://github.com/geraldrolland/AI_FAKE_NEW_PROJECT"
