@@ -3,28 +3,37 @@ import CertificateCard from "./CertificateCard";
 import awsLogo from "../public/aws-logo.svg";
 import dockerLogo from "../public/docker-logo.svg";
 import pythonLogo from "../public/python-logo.svg";
+import alxLogo from "../public/alx_logo.jpeg";
+import nounLogo from "../public/noun_log_.png";
 
 const certifications = [
     {
         logo: awsLogo,
-        name: "AWS Certified Cloud Practitioner",
+        name: "AWS Certified Solutions Architect - Associate",
         organization: "Amazon Web Services",
-        issueDate: "March 2024",
-        certificateUrl: "/sample-certificate.pdf",
+        issueDate: "November 2025",
+        certificateUrl: "/aws_solution_architect.pdf",
     },
     {
-        logo: dockerLogo,
-        name: "Docker Essentials",
-        organization: "Docker",
-        issueDate: "November 2023",
-        certificateUrl: "/sample-certificate.pdf",
+        logo: alxLogo,
+        name: "Software Engineering Program",
+        organization: "ALX Africa",
+        issueDate: "February 2025",
+        certificateUrl: "/alx_software_engineering.png",
     },
     {
-        logo: pythonLogo,
-        name: "Python for Data Science",
-        organization: "Python Institute",
-        issueDate: "June 2023",
-        certificateUrl: "/sample-certificate.pdf",
+        logo: alxLogo,
+        name: "Cloud Computing",
+        organization: "ALX Africa",
+        issueDate: "December 2025",
+        certificateUrl: "/alx_cloud_computing.png",
+    },
+    {
+        logo: nounLogo,
+        name: "Computer Science",
+        organization: "National Open University of Nigeria",
+        issueDate: "Currently Pursuing",
+        certificateUrl: "",
     },
 ];
 

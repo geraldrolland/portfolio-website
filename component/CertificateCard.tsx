@@ -21,13 +21,21 @@ const CertificateCard = ({logo, name, organization, issueDate, certificateUrl}: 
                 <p className="text-[14px] text-gray-500 mt-1">Issued: {issueDate}</p>
             </div>
             <div className="lg:w-[25%] flex lg:justify-end items-start">
-                <a
-                    href={certificateUrl}
-                    download
-                    className="bg-blue-500 hover:bg-blue-600 text-white text-[14px] font-medium px-4 py-2 rounded-md transition-colors"
-                >
-                    Download
-                </a>
+                {
+                    certificateUrl ? (
+                        <a
+                            href={certificateUrl}
+                            download
+                            className="bg-blue-500 hover:bg-blue-600 text-white text-[14px] font-medium px-4 py-2 rounded-md transition-colors"
+                        >
+                            Download
+                        </a>
+                    ) : (
+                        <span className="bg-gray-200 text-gray-600 text-[14px] font-medium px-4 py-2 rounded-md">
+                            Processing
+                        </span>
+                    )
+                }
             </div>
         </div>
     )
