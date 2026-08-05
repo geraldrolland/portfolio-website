@@ -1,8 +1,6 @@
 const Loader = () => {
     return (
-        <div className="border-2 rounded-full w-[15px] h-[15px] border-l-gray-800 animate-spin duration-500 ">
-
-        </div>
+        <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin duration-500"></div>
     )
 }
 

@@ -1,23 +1,36 @@
 "use client";
 
-import {useAppStore} from '@/hooks/useAppStore';
+import { useAppStore } from '@/hooks/useAppStore';
 import { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle2 } from 'lucide-react';
 
 const Notification = () => {
     const showNotification = useAppStore((state) => state.showNotification);
 
     useEffect(() => {
-        
-        setTimeout(() => {
-            useAppStore.setState({showNotification: false});
-        }, 5000)
-
-    }, [useAppStore((state) => state.showNotification)]);
+        if (!showNotification) return;
+        const timeout = setTimeout(() => {
+            useAppStore.setState({ showNotification: false });
+        }, 5000);
+        return () => clearTimeout(timeout);
+    }, [showNotification]);
 
     return (
-        <div className={`lg:p-4 transition-all md:p-2 lg:shadow-md  p-1 lg:text-[16px] text-[14px] duration-300 fixed top-[60px] ${showNotification ? 'md:right-2 right-0' : '-right-full'} mx-auto bg-green-100 text-green-800 rounded-md w-full max-w-[400px]`}>
-            Thank you for contacting me. I will get back to you soon!
-        </div>
+        <AnimatePresence>
+            {showNotification && (
+                <motion.div
+                    initial={{ opacity: 0, y: -16, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -16, scale: 0.97 }}
+                    transition={{ duration: 0.25 }}
+                    className="fixed top-20 right-4 z-[70] flex items-center gap-3 rounded-xl bg-green-600 text-white shadow-xl px-4 py-3 max-w-sm"
+                >
+                    <CheckCircle2 size={20} className="shrink-0" />
+                    <p className="text-sm">Thank you for contacting me. I will get back to you soon!</p>
+                </motion.div>
+            )}
+        </AnimatePresence>
     )
 }
 

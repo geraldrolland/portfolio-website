@@ -1,9 +1,9 @@
 import Label from "./Label";
 import ProjectCard from "./ProjectCard";
 import movie24 from "../public/movie24_image.png";
-import ai_img from "../public/ai_img.jpg"
-import query_mind_landing_page_img from "../public/query_mind_landing_page_img.png"
 import ai_veriscope_img from "../public/ai_veriscope_img.png"
+import query_mind_landing_page_img from "../public/query_mind_landing_page_img.png"
+import Reveal from "./motion";
 
 const projects = [
     {
@@ -31,12 +31,14 @@ const projects = [
         github: "https://github.com/geraldrolland/Movie24_Ui"
     },
 ]
+
 const Projects = () => {
     return (
-        <>
-        <section className="w-full  flex flex-col items-center gap-y-8">
-            <Label title="Projects" description="some noteworthy project i have built:" />
-            <div className="w-full flex flex-col items-center gap-y-14">
+        <section className="w-full flex flex-col items-center gap-y-12">
+            <Reveal>
+                <Label title="Projects" description="Some noteworthy projects I have built:" />
+            </Reveal>
+            <div className="w-full max-w-5xl flex flex-col items-center gap-y-10 px-4">
                 {
                     projects.map((project) => (
                         <ProjectCard key={project.title} {...project} />
@@ -44,7 +46,6 @@ const Projects = () => {
                 }
             </div>
         </section>
-        </>
     )
 }
 

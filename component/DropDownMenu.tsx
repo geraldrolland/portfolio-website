@@ -1,59 +1,100 @@
 "use client";
 
-import { Poppins } from "next/font/google";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home } from "lucide-react";
-import { PersonStandingIcon } from "lucide-react";
-import { CodeIcon } from "lucide-react";
-import { BriefcaseIcon } from "lucide-react";
-import { MailIcon } from "lucide-react";
-import { FileTextIcon } from "lucide-react";
-import { Award } from "lucide-react";
-import { X } from "lucide-react";
-import { motion } from "framer-motion";
-import { FaHelmetSafety } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaUserLarge } from "react-icons/fa6";
-
+import { motion, AnimatePresence } from "framer-motion";
+import { Home, Code2, Briefcase, Mail, User, Award, X } from "lucide-react";
+import { useEffect } from "react";
 
 type DropDownMenuPropType = {
     displayMenu: boolean,
     setDisplayMenu: (displayMenu: boolean) => void
 };
 
+const links = [
+    { label: "Home", href: "/", icon: Home },
+    { label: "Experience", href: "/experience", icon: Briefcase },
+    { label: "Projects", href: "/projects", icon: Code2 },
+    { label: "Certifications", href: "/certifications", icon: Award },
+    { label: "Contact", href: "/contact", icon: Mail },
+    { label: "About", href: "/about", icon: User },
+];
+
 const DropDownMenu = ({ displayMenu, setDisplayMenu }: DropDownMenuPropType) => {
     const pathname = usePathname();
 
+    useEffect(() => {
+        document.body.style.overflow = displayMenu ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [displayMenu]);
+
     return (
-        <motion.div
-            initial={{ opacity: 0, translateX: "-100%" }}
-            animate={{ opacity: displayMenu ? 1 : 0, translateX: displayMenu ? 0 : "-100%" }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="w-full flex   justify-center top-0 fixed z-10 md:hidden block h-full">
-            <div className="w-[80%]  bg-white   h-full px-2">
-                <ul className={`w-full flex flex-col gap-y-6 mt-4 text-gray-700 text-[18px]`}>
-                    <Link onClick={() => setDisplayMenu(false)} href="/" className={`flex gap-x-6 items-center p-2 ${pathname === '/' ? 'rounded-md shadow-sm' : ''}`}><Home className={`${pathname === '/' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/' ? 'text-blue-500' : ''}`}>Home</p></Link>
-                    <Link onClick={() => setDisplayMenu(false)} href="/experience" className={`flex gap-x-6 items-center p-2 ${pathname === '/experience' ? 'rounded-md shadow-sm' : ''}`}><FaHelmetSafety className={`${pathname === '/experience' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/experience' ? 'text-blue-500' : ''}`}>Experience</p></Link>
-                    <Link onClick={() => setDisplayMenu(false)} href="/projects" className={`flex gap-x-6 items-center p-2 ${pathname === '/projects' ? 'rounded-md shadow-sm' : ''}`}><CodeIcon className={`${pathname === '/projects' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/projects' ? 'text-blue-500' : ''}`}>Projects</p></Link>
-                    <Link onClick={() => setDisplayMenu(false)} href="/certifications" className={`flex gap-x-6 items-center p-2 ${pathname === '/certifications' ? 'rounded-md shadow-sm' : ''}`}><Award className={`${pathname === '/certifications' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/certifications' ? 'text-blue-500' : ''}`}>Certifications</p></Link>
-                    <Link onClick={() => setDisplayMenu(false)} href="/contact" className={`flex gap-x-6  items-center p-2 ${pathname === '/contact' ? 'rounded-md shadow-sm' : ''}`}><FaPhoneAlt className={`${pathname === '/contact' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/contact' ? 'text-blue-500' : ''}`}>Contact</p></Link>
-                    <Link onClick={() => setDisplayMenu(false)} href="/about" className={`flex gap-x-6  items-center p-2 ${pathname === '/about' ? 'rounded-md shadow-sm' : ''}`}><FaUserLarge className={`${pathname === '/about' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/about' ? 'text-blue-500' : ''}`}>About</p></Link>
-                </ul>
-            </div>
-            <div className="w-[20%] bg-white pr-2 py-2 backdrop-filter  bg-opacity-60 flex justify-end">
-                <motion.button
-                whileInView={{
-                    rotate: 360
-                }} 
-                transition={{
-                    duration: 0.5
-                }}
-                className="w-[40px] cursor-pointer h-[40px] shadow-md bg-white flex justify-center items-center rounded-[25px]">
-                    <X onClick={() => setDisplayMenu(false)} className="text-gray-800" />
-                </motion.button>
-            </div>
-        </motion.div>
+        <AnimatePresence>
+            {displayMenu && (
+                <>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setDisplayMenu(false)}
+                        className="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm md:hidden"
+                    />
+                    <motion.aside
+                        initial={{ x: "-100%" }}
+                        animate={{ x: 0 }}
+                        exit={{ x: "-100%" }}
+                        transition={{ type: "tween", duration: 0.25, ease: "easeInOut" }}
+                        className="fixed top-0 left-0 bottom-0 z-50 w-[80%] max-w-xs bg-white shadow-2xl md:hidden"
+                    >
+                        <div className="flex items-center justify-between px-5 h-16 border-b border-slate-100">
+                            <span className="text-lg font-bold text-slate-900">
+                                Gerald<span className="text-blue-600">.</span>
+                            </span>
+                            <button
+                                onClick={() => setDisplayMenu(false)}
+                                aria-label="Close menu"
+                                className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 transition-colors"
+                            >
+                                <X size={20} />
+                            </button>
+                        </div>
+                        <nav className="p-4">
+                            <ul className="flex flex-col gap-1">
+                                {
+                                    links.map((link, index) => {
+                                        const active = pathname === link.href;
+                                        const Icon = link.icon;
+                                        return (
+                                            <motion.li
+                                                key={link.href}
+                                                initial={{ opacity: 0, x: -16 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                transition={{ delay: 0.08 * index + 0.1, duration: 0.3 }}
+                                            >
+                                                <Link
+                                                    onClick={() => setDisplayMenu(false)}
+                                                    href={link.href}
+                                                    className={`flex items-center gap-3 px-3 py-3 rounded-lg text-[15px] font-medium transition-colors ${
+                                                        active
+                                                            ? "bg-blue-50 text-blue-600"
+                                                            : "text-slate-700 hover:bg-slate-50"
+                                                    }`}
+                                                >
+                                                    <Icon size={18} className={active ? "text-blue-600" : "text-slate-500"} />
+                                                    {link.label}
+                                                </Link>
+                                            </motion.li>
+                                        );
+                                    })
+                                }
+                            </ul>
+                        </nav>
+                    </motion.aside>
+                </>
+            )}
+        </AnimatePresence>
     )
 }
 

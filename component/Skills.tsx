@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -23,6 +22,7 @@ import kubernetes from '../public/kubernetes-logo.svg';
 import bash from '../public/bash-logo.svg';
 import jenkins from '../public/jenkins-logo.svg';
 import Label from "./Label";
+import { motion } from "framer-motion";
 
 const technologies = [
     { name: "Javascript", icon: JsIcon },
@@ -49,19 +49,33 @@ const technologies = [
 
 const Skills = () => {
     return (
-        <>
-        <section className="flex px-2 justify-center  items-center w-[100%] mt-[130px] flex-col">
+        <section className="w-full mt-24">
             <Label title="Skills" description="The skills, tools and technologies I work with include:" />
-            <div className="lg:w-[80%] md:gap-y-2 gap-y-6 min-w-[80%]  flex-wrap flex">
-                {technologies.map((tech) => (
-                    <div key={tech.name} className="md:basis-1/6 lg:basis-1/9 flex flex-col px-1 justify-between items-center basis-1/3 h-[70px]">
-                        <Image src={tech.icon} alt={tech.name} width={40} height={40} quality={75} />
-                        <span>{tech.name}</span>
-                    </div>
-                ))}
+            <div className="max-w-4xl mx-auto mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4">
+                {
+                    technologies.map((tech, index) => (
+                        <motion.div
+                            key={tech.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            transition={{ duration: 0.4, delay: (index % 5) * 0.06, ease: "easeOut" }}
+                            className="group flex flex-col items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md hover:-translate-y-1 hover:border-blue-200 transition-all duration-300"
+                        >
+                            <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                width={40}
+                                height={40}
+                                quality={75}
+                                className="group-hover:scale-110 transition-transform duration-300"
+                            />
+                            <span className="text-sm font-medium text-slate-600 group-hover:text-blue-600 transition-colors duration-300">{tech.name}</span>
+                        </motion.div>
+                    ))
+                }
             </div>
         </section>
-        </>
     )
 }
 

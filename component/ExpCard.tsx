@@ -1,33 +1,51 @@
-import Image from "next/image";
+"use client";
+
+import Image, { type StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 type ExpCardPropType = {
-    logo: any,
+    logo: StaticImageData,
     position: string,
     company: string,
     duration: string,
     descriptions: string[],
 }
 
-
-const ExpCard = ({logo, position, company, duration, descriptions}: ExpCardPropType) => {
+const ExpCard = ({ logo, position, company, duration, descriptions }: ExpCardPropType) => {
     return (
-        <>
-        <div className="lg:w-[60%]  p-4 rounded-md  lg:shadow-lg md:shadow-md  shadow-none  md:w-[80%] flex justify-between lg:flex-row md:flex-col flex-col items-start">
-            <div className="flex lg:w-[15%]  items-start mb-6 flex-col gap-y-3 w-[30%]">
-            <Image src={logo} alt={`${company} logo`} width={50} height={50} />
-            <h3 className="font-bold text-lg text-gray-700">{company}</h3>
-            </div>
-            <div className="lg:w-[50%] lg:pl-0 pl-4 md:w-[80%] w-[100%] mb-4">
-                <h1 className="font-semibold text-[18px] mb-2 text-gray-800">{position}</h1>
-                <ul>
+        <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative pl-12 md:pl-16"
+        >
+            <span className="absolute left-[7px] md:left-[11px] top-2 h-4 w-4 rounded-full border-2 border-blue-600 bg-white shadow-sm"></span>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
+                    <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0">
+                            <Image src={logo} alt={`${company} logo`} width={30} height={30} />
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-slate-900">{position}</h3>
+                            <p className="text-sm font-medium text-blue-600">{company}</p>
+                        </div>
+                    </div>
+                    <span className="text-sm text-slate-500 bg-slate-50 border border-slate-200 rounded-full px-3 py-1">{duration}</span>
+                </div>
+                <ul className="space-y-2">
                     {
-                        descriptions.map(description => <li key={description} className="list-disc text-[14px] inset-8 text-gray-700">{description}</li>)
+                        descriptions.map((description) => (
+                            <li key={description} className="flex gap-2.5 items-start text-sm text-slate-600">
+                                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                                {description}
+                            </li>
+                        ))
                     }
                 </ul>
             </div>
-            <h3 className="text-gray-800 lg:text-right  lg:w-[25%] text-[14px]">{duration}</h3>
-        </div>
-        </>
+        </motion.div>
     )
 }
 

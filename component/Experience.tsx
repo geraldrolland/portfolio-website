@@ -1,8 +1,7 @@
 import Label from "./Label"
 import ExpCard from "./ExpCard";
 import houseIcon from "../public/house-logo.svg";
-
-
+import Reveal from "./motion";
 
 const experience = [
     {
@@ -25,10 +24,7 @@ const experience = [
             "Leading a team of 10 software engineers to develop and maintain web applications.",
             "Implementing best practices for software development and ensuring code quality.",
             "Collaborating with cross-functional teams to deliver high-quality software solutions.",
-
         ]
-
-
     },
     {
         logo: houseIcon,
@@ -39,31 +35,36 @@ const experience = [
             "Leading a team of 10 software engineers to develop and maintain web applications.",
             "Implementing best practices for software development and ensuring code quality.",
             "Collaborating with cross-functional teams to deliver high-quality software solutions.",
-
         ]
-
-
     }
 ]
+
 const Experience = () => {
     return (
-        <>
-        <section className="w-full  flex flex-col gap-y-8  items-center">
-            <Label title="Experience" description="My professional journey includes:" />
-            {
-                experience.map(({logo, position, company, duration, descriptions}) => (
-                    <ExpCard
-                        key={position}
-                        logo={logo}
-                        position={position}
-                        company={company}
-                        duration={duration}
-                        descriptions={descriptions}
-                    />
-                ))
-            }
+        <section className="w-full flex flex-col items-center gap-y-12">
+            <Reveal>
+                <Label title="Experience" description="My professional journey includes:" />
+            </Reveal>
+            <div className="relative max-w-3xl w-full px-4">
+                <Reveal y={0} className="absolute left-[15px] md:left-[19px] top-3 bottom-3">
+                    <span className="block w-0.5 h-full bg-blue-100 rounded-full"></span>
+                </Reveal>
+                <div className="flex flex-col gap-y-10">
+                    {
+                        experience.map(({ logo, position, company, duration, descriptions }) => (
+                            <ExpCard
+                                key={position}
+                                logo={logo}
+                                position={position}
+                                company={company}
+                                duration={duration}
+                                descriptions={descriptions}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
         </section>
-        </>
     )
 }
 

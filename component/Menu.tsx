@@ -1,20 +1,46 @@
-"use client"
-import { Poppins } from "next/font/google"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+"use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+
+const links = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Experience", href: "/experience" },
+    { label: "Projects", href: "/projects" },
+    { label: "Certifications", href: "/certifications" },
+    { label: "Contact", href: "/contact" },
+];
 
 const Menu = () => {
     const location = usePathname();
 
     return (
-        <ul className={` gap-x-6 text-gray-700 md:flex hidden items-center  h-full `}>
-            <li className={`${location === '/' ? 'text-blue-500' : ''}`}><Link href="/">Home</Link></li>
-            <li className={`${location === '/experience' ? 'text-blue-500' : ''}`}><Link href="/experience">Experience</Link></li>
-            <li className={`${location === '/projects' ? 'text-blue-500' : ''}`}><Link href="/projects">Projects</Link></li>
-            <li className={`${location === '/certifications' ? 'text-blue-500' : ''}`}><Link href="/certifications">Certifications</Link></li>
-            <li className={`${location === '/contact' ? 'text-blue-500' : ''}`}><Link href="/contact">Contact</Link></li>
-            <li className={`${location === '/about' ? 'text-blue-500' : ''}`}><Link href="/about">About</Link></li>
+        <ul className="hidden md:flex items-center gap-1 h-full">
+            {
+                links.map((link) => {
+                    const active = location === link.href;
+                    return (
+                        <li key={link.href} className="relative h-full flex items-center">
+                            <Link
+                                href={link.href}
+                                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                                    active ? "text-blue-600" : "text-slate-600 hover:text-blue-600"
+                                }`}
+                            >
+                                {link.label}
+                            </Link>
+                            {active && (
+                                <motion.span
+                                    layoutId="nav-active-indicator"
+                                    className="absolute left-3 right-3 -bottom-0.5 h-[2px] rounded-full bg-blue-600"
+                                />
+                            )}
+                        </li>
+                    );
+                })
+            }
         </ul>
     )
 }

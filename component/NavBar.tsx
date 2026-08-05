@@ -3,22 +3,36 @@
 import Menu from "./Menu";
 import Separator from "./Seperator";
 import DownloadCV from "./DownlaodCV";
-import  {MenuIcon} from "lucide-react";
+import { Menu as MenuIcon } from "lucide-react";
+import Link from "next/link";
 
 type NavBarPropType = {
     setDisplayMenu: (displayMenu: boolean) => void,
 };
-const NavBar = ({ setDisplayMenu}: NavBarPropType) => {
-    return (
-        <nav className="w-full bg-white h-[50px] z-10 fixed top-0 left-0 right-0 md:shadow-md shadow-none flex  md:justify-end justify-between items-center px-4">
-            <MenuIcon className="md:hidden block cursor-pointer" onClick={() => setDisplayMenu(true)} />
-            <div id="menu-for-med-screens" className="h-full flex gap-x-8 items-center md:px-1">
-                <Menu />
-                <Separator />
-                <DownloadCV />
-            </div>
 
-        </nav>
+const NavBar = ({ setDisplayMenu }: NavBarPropType) => {
+    return (
+        <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+            <nav className="max-w-6xl mx-auto h-16 px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setDisplayMenu(true)}
+                        aria-label="Open menu"
+                        className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
+                    >
+                        <MenuIcon size={22} />
+                    </button>
+                    <Link href="/" className="text-xl font-bold text-slate-900">
+                        Gerald<span className="text-blue-600">.</span>
+                    </Link>
+                </div>
+                <div className="flex items-center gap-x-6">
+                    <Menu />
+                    <Separator />
+                    <DownloadCV />
+                </div>
+            </nav>
+        </header>
     )
 }
 

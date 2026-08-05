@@ -1,6 +1,6 @@
 const Separator = () => {
     return (
-        <div className="w-[1px] h-[40%] border-gray-400 border lg:block hidden"></div>
+        <div className="hidden lg:block h-6 w-px bg-slate-200"></div>
     )
 }
 

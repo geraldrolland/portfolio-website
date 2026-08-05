@@ -1,10 +1,9 @@
 import Label from "./Label";
 import CertificateCard from "./CertificateCard";
 import awsLogo from "../public/aws-logo.svg";
-import dockerLogo from "../public/docker-logo.svg";
-import pythonLogo from "../public/python-logo.svg";
 import alxLogo from "../public/alx_logo.jpeg";
 import nounLogo from "../public/noun_log_.png";
+import Reveal from "./motion";
 
 const certifications = [
     {
@@ -39,20 +38,24 @@ const certifications = [
 
 const Certifications = () => {
     return (
-        <section className="w-full flex flex-col gap-y-8 items-center">
-            <Label title="Certifications" description="Certifications and courses I have completed:" />
-            {
-                certifications.map(({logo, name, organization, issueDate, certificateUrl}) => (
-                    <CertificateCard
-                        key={name}
-                        logo={logo}
-                        name={name}
-                        organization={organization}
-                        issueDate={issueDate}
-                        certificateUrl={certificateUrl}
-                    />
-                ))
-            }
+        <section className="w-full flex flex-col items-center gap-y-12">
+            <Reveal>
+                <Label title="Certifications" description="Certifications and courses I have completed:" />
+            </Reveal>
+            <div className="w-full max-w-3xl flex flex-col items-center gap-y-5 px-4">
+                {
+                    certifications.map(({ logo, name, organization, issueDate, certificateUrl }) => (
+                        <CertificateCard
+                            key={name}
+                            logo={logo}
+                            name={name}
+                            organization={organization}
+                            issueDate={issueDate}
+                            certificateUrl={certificateUrl}
+                        />
+                    ))
+                }
+            </div>
         </section>
     )
 }
