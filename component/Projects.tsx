@@ -2,6 +2,7 @@ import Label from "./Label";
 import ProjectCard from "./ProjectCard";
 import movie24 from "../public/movie24_image.png";
 import ai_img from "../public/ai_img.jpg"
+import query_mind_landing_page_img from "../public/query_mind_landing_page_img.png"
 
 const projects = [
     {
@@ -11,6 +12,14 @@ const projects = [
         technologies: ["Fastapi",  "mySQL", "Python", "Redis", "TensorFlow", "Scikit-learn", "Selenium", "BeautifulSoup4"],
         link: "https://github.com/geraldrolland/AI_FAKE_NEW_PROJECT",
         github: "https://github.com/geraldrolland/AI_FAKE_NEW_PROJECT"
+    },
+    {
+        title: "QueryMind",
+        description: "This is an AI-powered data analysis platform. Upload a CSV, review the automated cleaning report, and ask questions in plain English. The assistant validates and runs its own query plans against your data and answers with real numbers and interactive charts.",
+        image: query_mind_landing_page_img,
+        technologies: ["Fastapi",  "postgresql", "Python", "Redis", "Celery", "OpenAI API", "Pandas", "Next.js", "TailwindCss", "MCP"],
+        link: "https://query-mind-frontend-v1.onrender.com/",
+        github: "https://github.com/geraldrolland/query_mind_frontend"
     },
     {
         title: "Movie24",
