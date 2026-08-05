@@ -8,7 +8,7 @@ import { MapPin, Mail, Code2, Briefcase } from "lucide-react";
 
 const paragraphs = {
     whoIAm: [
-        "Hello! I'm Onyeka Gerald Ujowundu, a graduate of the ALX Software Engineering program with over three years of hands-on experience in designing, developing, and deploying scalable and secure software solutions. My work is driven by a passion for creating technology that not only solves real-world problems but also delivers a seamless, engaging experience for users.",
+        "Hello! I'm Onyeka Gerald Ujowundu, a graduate of the ALX Software Engineering program with over four years of hands-on experience in designing, developing, and deploying scalable and secure software solutions. My work is driven by a passion for creating technology that not only solves real-world problems but also delivers a seamless, engaging experience for users.",
         "Over the years, I've developed a strong foundation in system thinking and software architecture, allowing me to build systems that are both robust and efficient. My technical expertise spans frontend and backend development, where I focus on building engaging user interfaces supported by secure, high-performance backend systems. Whether it's crafting intuitive user experiences or optimizing APIs for large-scale applications, I approach every project with precision and a deep understanding of how systems interact end-to-end.",
     ],
     engineeringApproach: [
@@ -32,7 +32,7 @@ const quickFacts = [
     { icon: Briefcase, label: "Focus", value: "Software Engineering" },
     { icon: Code2, label: "Specialties", value: "Full-Stack, AWS, System Design" },
     { icon: MapPin, label: "Location", value: "Lagos, Nigeria" },
-    { icon: Mail, label: "Email", value: "grealrolland@gmail.com" },
+    { icon: Mail, label: "Email", value: "geraldrolland123@gmail.com" },
 ];
 
 const AboutMe = () => {

@@ -42,8 +42,8 @@ const Footer = () => {
                 <div>
                     <p className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Connect</p>
                     <SocialLinks variant="light" />
-                    <a href="mailto:grealrolland@gmail.com" className="inline-block mt-4 text-sm text-slate-400 hover:text-white transition-colors duration-200">
-                        greallrolland@gmail.com
+                    <a href="mailto:geraldrolland123@gmail.com" className="inline-block mt-4 text-sm text-slate-400 hover:text-white transition-colors duration-200">
+                        geraldrolland123@gmail.com
                     </a>
                 </div>
             </div>

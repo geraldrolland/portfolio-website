@@ -28,7 +28,7 @@ const SubmitForm = () => {
       useAppStore.setState({ showNotification: true });
       setFormData({ name: "", email: "", message: "" });
     } catch {
-      setError("Something went wrong. Please try again or email me directly at greallrolland@gmail.com.");
+      setError("Something went wrong. Please try again or email me directly at geraldrolland123@gmail.com.");
     } finally {
       setLoading(false);
     }

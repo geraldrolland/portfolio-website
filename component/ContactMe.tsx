@@ -14,7 +14,7 @@ const channels = [
         icon: whatsapIcon,
     },
     {
-        href: "mailto:grealrolland@gmail.com",
+        href: "mailto:geraldrolland123@gmail.com",
         label: "Email",
         description: "Send me a mail",
         icon: emailIcon,

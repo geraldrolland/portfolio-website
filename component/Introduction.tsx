@@ -42,7 +42,7 @@ const Introduction = () => {
                 </motion.p>
 
                 <motion.p variants={item} className="mt-5 text-[16px] leading-relaxed text-slate-600">
-                    I&apos;m a software engineer with over 3 years of experience in building
+                    I&apos;m a software engineer with over 4 years of experience in building
                     secure and reliable software applications that
                     drive business impact. My work is grounded in system
                     thinking and design, ensuring that every solution is scalable,
