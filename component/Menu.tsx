@@ -17,7 +17,7 @@ const Menu = () => {
     const location = usePathname();
 
     return (
-        <ul className="hidden md:flex items-center gap-1 h-full">
+        <ul className="hidden lg:flex items-center gap-1 h-full">
             {
                 links.map((link) => {
                     const active = location === link.href;

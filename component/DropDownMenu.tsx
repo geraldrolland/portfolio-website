@@ -39,14 +39,14 @@ const DropDownMenu = ({ displayMenu, setDisplayMenu }: DropDownMenuPropType) => 
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setDisplayMenu(false)}
-                        className="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm md:hidden"
+                        className="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm lg:hidden"
                     />
                     <motion.aside
                         initial={{ x: "-100%" }}
                         animate={{ x: 0 }}
                         exit={{ x: "-100%" }}
                         transition={{ type: "tween", duration: 0.25, ease: "easeInOut" }}
-                        className="fixed top-0 left-0 bottom-0 z-50 w-[80%] max-w-xs bg-white shadow-2xl md:hidden"
+                        className="fixed top-0 left-0 bottom-0 z-50 w-[80%] max-w-xs bg-white shadow-2xl lg:hidden"
                     >
                         <div className="flex items-center justify-between px-5 h-16 border-b border-slate-100">
                             <span className="text-lg font-bold text-slate-900">

@@ -29,19 +29,19 @@ const CertificateCard = ({ logo, name, organization, issueDate, certificateUrl }
                 <p className="text-sm text-slate-600 mt-0.5">{organization}</p>
                 <p className="text-xs text-slate-500 mt-1">Issued: {issueDate}</p>
             </div>
-            <div className="shrink-0">
+            <div className="w-full sm:w-auto shrink-0">
                 {
                     certificateUrl ? (
                         <a
                             href={certificateUrl}
                             download
-                            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                         >
                             <Download size={16} />
                             Download
                         </a>
                     ) : (
-                        <span className="inline-flex items-center gap-2 rounded-lg bg-slate-100 text-slate-500 text-sm font-medium px-4 py-2">
+                        <span className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-slate-100 text-slate-500 text-sm font-medium px-4 py-2">
                             <Clock size={16} />
                             Certification In Process
                         </span>

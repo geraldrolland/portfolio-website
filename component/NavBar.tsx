@@ -18,7 +18,7 @@ const NavBar = ({ setDisplayMenu }: NavBarPropType) => {
                     <button
                         onClick={() => setDisplayMenu(true)}
                         aria-label="Open menu"
-                        className="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
+                        className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
                     >
                         <MenuIcon size={22} />
                     </button>
