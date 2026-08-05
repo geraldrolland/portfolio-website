@@ -7,34 +7,27 @@ const experience = [
     {
         logo: houseIcon,
         position: "Lead Software Engineer",
-        company: "Global Tech",
-        duration: "Nov 2023 - Oct 2025",
+        company: "GlobalTech Institute",
+        location: "Ikorodu, Lagos, Nigeria",
+        duration: "07.2020 - 03.2023",
         descriptions: [
-            "Leading a team of 4 software engineers to develop and maintain web applications.",
-            "Implementing best practices for software development and ensuring code quality.",
-            "Collaborating with cross-functional teams to deliver high-quality software solutions.",
+            "Engineered a FastAPI-based data extraction microservice for managing connectors, data sources, extraction jobs, and automated scheduling, enabling reliable and scalable data ingestion workflows.",
+            "Designed and implemented an asynchronous data processing pipeline using FastAPI, Celery, Redis, RabbitMQ, and WebSockets to extract, transform, flatten, and stream data from databases and files with real-time job progress updates.",
+            "Built secure and resilient data processing features, including encrypted connector credentials, schema drift detection, idempotency validation, job lifecycle management, and fault-tolerant execution to ensure reliable extraction operations.",
+            "Integrated Kafka and event-driven messaging to support scalable downstream data delivery, workflow orchestration, and real-time processing across distributed services.",
         ]
     },
     {
         logo: houseIcon,
-        position: "Backend Engineer",
-        company: "Lead Tech",
-        duration: "August 2021 - June 2022",
+        position: "Software Engineer",
+        company: "Lead Tech Institute",
+        location: "Ikeja, Lagos, Nigeria",
+        duration: "01.2019 - 03.2020",
         descriptions: [
-            "Leading a team of 10 software engineers to develop and maintain web applications.",
-            "Implementing best practices for software development and ensuring code quality.",
-            "Collaborating with cross-functional teams to deliver high-quality software solutions.",
-        ]
-    },
-    {
-        logo: houseIcon,
-        position: "Intern Software Engineer",
-        company: "HNG",
-        duration: "Jan 2021 - May 2021",
-        descriptions: [
-            "Leading a team of 10 software engineers to develop and maintain web applications.",
-            "Implementing best practices for software development and ensuring code quality.",
-            "Collaborating with cross-functional teams to deliver high-quality software solutions.",
+            "Engineered a FastAPI-based transactional email microservice to manage email delivery, template rendering, and notification workflows, providing a scalable and reliable messaging infrastructure.",
+            "Designed and implemented an event-driven email processing pipeline by consuming RabbitMQ messages and integrating multiple delivery providers, including SMTP, SendGrid, and Amazon SES, through a unified provider abstraction layer.",
+            "Improved system reliability by implementing idempotency, automated retry mechanisms, delivery tracking, failure handling, and comprehensive logging to ensure dependable email processing and observability.",
+            "Enhanced application security and performance by implementing authentication, rate limiting, CSRF protection, and middleware-driven request processing, enabling secure, scalable, and production-ready email services.",
         ]
     }
 ]
@@ -51,12 +44,13 @@ const Experience = () => {
                 </Reveal>
                 <div className="flex flex-col gap-y-10">
                     {
-                        experience.map(({ logo, position, company, duration, descriptions }) => (
+                        experience.map(({ logo, position, company, location, duration, descriptions }) => (
                             <ExpCard
                                 key={position}
                                 logo={logo}
                                 position={position}
                                 company={company}
+                                location={location}
                                 duration={duration}
                                 descriptions={descriptions}
                             />

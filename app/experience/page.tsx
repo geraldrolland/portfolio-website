@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Experience — Gerald Ujowundu",
-    description: "Professional journey of Onyeka Gerald Ujowundu — lead software engineer, backend engineer, and intern at HNG.",
+    description: "Professional journey of Onyeka Gerald Ujowundu — lead software engineer at GlobalTech Institute and software engineer at Lead Tech Institute.",
 };
 
 export default function ExperiencePage() {

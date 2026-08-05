@@ -2,16 +2,18 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
 
 type ExpCardPropType = {
     logo: StaticImageData,
     position: string,
     company: string,
+    location?: string,
     duration: string,
     descriptions: string[],
 }
 
-const ExpCard = ({ logo, position, company, duration, descriptions }: ExpCardPropType) => {
+const ExpCard = ({ logo, position, company, location, duration, descriptions }: ExpCardPropType) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -32,7 +34,15 @@ const ExpCard = ({ logo, position, company, duration, descriptions }: ExpCardPro
                             <p className="text-sm font-medium text-blue-600">{company}</p>
                         </div>
                     </div>
-                    <span className="text-sm text-slate-500 bg-slate-50 border border-slate-200 rounded-full px-3 py-1">{duration}</span>
+                    <div className="flex flex-col items-end gap-1.5">
+                        <span className="text-sm text-slate-500 bg-slate-50 border border-slate-200 rounded-full px-3 py-1">{duration}</span>
+                        {location && (
+                            <span className="flex items-center gap-1 text-xs text-slate-500">
+                                <MapPin size={12} />
+                                {location}
+                            </span>
+                        )}
+                    </div>
                 </div>
                 <ul className="space-y-2">
                     {
