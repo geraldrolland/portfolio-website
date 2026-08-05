@@ -9,6 +9,7 @@ import { CodeIcon } from "lucide-react";
 import { BriefcaseIcon } from "lucide-react";
 import { MailIcon } from "lucide-react";
 import { FileTextIcon } from "lucide-react";
+import { Award } from "lucide-react";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 import { FaHelmetSafety } from "react-icons/fa6";
@@ -35,6 +36,7 @@ const DropDownMenu = ({ displayMenu, setDisplayMenu }: DropDownMenuPropType) => 
                     <Link onClick={() => setDisplayMenu(false)} href="/" className={`flex gap-x-6 items-center p-2 ${pathname === '/' ? 'rounded-md shadow-sm' : ''}`}><Home className={`${pathname === '/' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/' ? 'text-blue-500' : ''}`}>Home</p></Link>
                     <Link onClick={() => setDisplayMenu(false)} href="/experience" className={`flex gap-x-6 items-center p-2 ${pathname === '/experience' ? 'rounded-md shadow-sm' : ''}`}><FaHelmetSafety className={`${pathname === '/experience' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/experience' ? 'text-blue-500' : ''}`}>Experience</p></Link>
                     <Link onClick={() => setDisplayMenu(false)} href="/projects" className={`flex gap-x-6 items-center p-2 ${pathname === '/projects' ? 'rounded-md shadow-sm' : ''}`}><CodeIcon className={`${pathname === '/projects' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/projects' ? 'text-blue-500' : ''}`}>Projects</p></Link>
+                    <Link onClick={() => setDisplayMenu(false)} href="/certifications" className={`flex gap-x-6 items-center p-2 ${pathname === '/certifications' ? 'rounded-md shadow-sm' : ''}`}><Award className={`${pathname === '/certifications' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/certifications' ? 'text-blue-500' : ''}`}>Certifications</p></Link>
                     <Link onClick={() => setDisplayMenu(false)} href="/contact" className={`flex gap-x-6  items-center p-2 ${pathname === '/contact' ? 'rounded-md shadow-sm' : ''}`}><FaPhoneAlt className={`${pathname === '/contact' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/contact' ? 'text-blue-500' : ''}`}>Contact</p></Link>
                     <Link onClick={() => setDisplayMenu(false)} href="/about" className={`flex gap-x-6  items-center p-2 ${pathname === '/about' ? 'rounded-md shadow-sm' : ''}`}><FaUserLarge className={`${pathname === '/about' ? 'text-blue-500' : ''}`} /><p className={`${pathname === '/about' ? 'text-blue-500' : ''}`}>About</p></Link>
                 </ul>
