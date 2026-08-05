@@ -9,7 +9,7 @@ type SocialLinksPropType = {
 
 const links = [
     { label: "GitHub", href: "https://github.com/geraldrolland", Icon: FiGithub },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/onyekaujowundu/", Icon: LuLinkedin },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/onyeka-ujowundu-72b897246", Icon: LuLinkedin },
 ];
 
 const SocialLinks = ({ variant = "dark" }: SocialLinksPropType) => {

@@ -20,7 +20,7 @@ const channels = [
         icon: emailIcon,
     },
     {
-        href: "https://www.linkedin.com/in/onyekaujowundu/",
+        href: "https://www.linkedin.com/in/onyeka-ujowundu-72b897246",
         label: "LinkedIn",
         description: "Let's connect",
         icon: linkedinIcon,
