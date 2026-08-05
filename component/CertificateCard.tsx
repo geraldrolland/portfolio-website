@@ -32,7 +32,7 @@ const CertificateCard = ({logo, name, organization, issueDate, certificateUrl}: 
                         </a>
                     ) : (
                         <span className="bg-gray-200 text-gray-600 text-[14px] font-medium px-4 py-2 rounded-md">
-                            Processing
+                            Certification In Process
                         </span>
                     )
                 }
