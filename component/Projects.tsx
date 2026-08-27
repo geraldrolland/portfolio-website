@@ -19,7 +19,7 @@ const projects = [
         description: "This is an AI-powered data analysis platform. Upload a CSV, review the automated cleaning report, and ask questions in plain English. The assistant validates and runs its own query plans against your data and answers with real numbers and interactive charts.",
         image: query_mind_landing_page_img,
         technologies: ["Fastapi",  "postgresql", "Python", "Redis", "Celery", "OpenAI API", "Pandas", "Next.js", "TailwindCss", "MCP"],
-        link: "https://query-mind-frontend-v1.onrender.com/",
+        link: "https://query-mind-frontend.geraldrolland123.workers.dev",
         github: "https://github.com/geraldrolland/query_mind_frontend"
     },
     {
