@@ -8,14 +8,14 @@ import ScrollProgress from "@/component/ScrollProgress";
 import ScrollToTop from "@/component/ScrollToTop";
 import { useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 
 const ClientLayout = ({ children }: { children: ReactNode }) => {
     const [displayMenu, setDisplayMenu] = useState(false);
     const pathname = usePathname();
 
     return (
-        <>
+        <MotionConfig reducedMotion="user">
             <ScrollProgress />
             <NavBar setDisplayMenu={setDisplayMenu} />
             <DropDownMenu displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
@@ -30,7 +30,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
             <Footer />
             <Notification />
             <ScrollToTop />
-        </>
+        </MotionConfig>
     );
 };
 

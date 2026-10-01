@@ -1,11 +1,10 @@
 "use client";
 
-import Image, { type StaticImageData } from "next/image";
-import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import Reveal from "./motion";
 
 type ExpCardPropType = {
-    logo: StaticImageData,
+    index: number,
     position: string,
     company: string,
     location?: string,
@@ -13,50 +12,47 @@ type ExpCardPropType = {
     descriptions: string[],
 }
 
-const ExpCard = ({ logo, position, company, location, duration, descriptions }: ExpCardPropType) => {
+const ExpCard = ({ index, position, company, location, duration, descriptions }: ExpCardPropType) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative pl-12 md:pl-16"
-        >
-            <span className="absolute left-[7px] md:left-[11px] top-2 h-4 w-4 rounded-full border-2 border-blue-600 bg-white shadow-sm"></span>
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-                    <div className="flex items-center gap-3 min-w-0">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0">
-                            <Image src={logo} alt={`${company} logo`} width={30} height={30} />
-                        </div>
-                        <div className="min-w-0">
-                            <h3 className="font-bold text-slate-900 break-words">{position}</h3>
-                            <p className="text-sm font-medium text-blue-600 break-words">{company}</p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">
-                        <span className="text-sm text-slate-500 bg-slate-50 border border-slate-200 rounded-full px-3 py-1">{duration}</span>
-                        {location && (
-                            <span className="flex items-center gap-1 text-xs text-slate-500">
-                                <MapPin size={12} />
-                                {location}
-                            </span>
-                        )}
+        <Reveal className="grid gap-5 md:grid-cols-[240px,1fr] md:gap-10 py-8 border-b border-line">
+            <div>
+                <p className="font-display text-lg font-medium text-accent">
+                    {duration.replace(" - ", " — ")}
+                </p>
+                {location && (
+                    <p className="mt-2 flex items-center gap-1.5 text-xs uppercase tracking-[0.14em] text-muted">
+                        <MapPin size={12} aria-hidden="true" />
+                        {location}
+                    </p>
+                )}
+            </div>
+            <div className="min-w-0">
+                <div className="flex items-baseline gap-3">
+                    <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent">
+                        {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                        <h2 className="font-display text-xl sm:text-2xl font-medium tracking-tight text-foreground">
+                            {position}
+                        </h2>
+                        <p className="mt-1 text-sm font-medium uppercase tracking-[0.12em] text-muted">
+                            {company}
+                        </p>
                     </div>
                 </div>
-                <ul className="space-y-2">
+                <ul className="mt-5 space-y-3.5">
                     {
                         descriptions.map((description) => (
-                            <li key={description} className="flex gap-2.5 items-start text-sm text-slate-600 min-w-0 break-words">
-                                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                            <li key={description} className="flex gap-3.5 items-start text-[15px] leading-relaxed text-muted min-w-0 break-words">
+                                <span className="mt-3 h-px w-4 bg-accent shrink-0" aria-hidden="true"></span>
                                 {description}
                             </li>
                         ))
                     }
                 </ul>
             </div>
-        </motion.div>
-    )
-}
+        </Reveal>
+    );
+};
 
 export default ExpCard;

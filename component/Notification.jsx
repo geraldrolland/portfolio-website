@@ -24,9 +24,9 @@ const Notification = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -16, scale: 0.97 }}
                     transition={{ duration: 0.25 }}
-                    className="fixed top-20 right-4 z-[70] flex items-center gap-3 rounded-xl bg-green-600 text-white shadow-xl px-4 py-3 max-w-sm"
+                    className="fixed top-20 right-4 z-[70] flex items-center gap-3 bg-foreground text-background shadow-xl px-4 py-3.5 max-w-sm"
                 >
-                    <CheckCircle2 size={20} className="shrink-0" />
+                    <CheckCircle2 size={20} className="shrink-0 text-accent" />
                     <p className="text-sm">Thank you for contacting me. I will get back to you soon!</p>
                 </motion.div>
             )}
