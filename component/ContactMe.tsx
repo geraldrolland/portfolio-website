@@ -5,6 +5,7 @@ import linkedinIcon from "../public/linkedin-logo.svg";
 import Image from "next/image";
 import SubmitForm from "./SubmitForm";
 import Reveal from "./motion";
+import { ArrowUpRight } from "lucide-react";
 
 const channels = [
     {
@@ -29,38 +30,63 @@ const channels = [
 
 const ContactMe = () => {
     return (
-        <div className="w-full flex flex-col items-center gap-y-12">
+        <div className="w-full max-w-5xl mx-auto">
             <Reveal>
-                <Label title="Contact Me" description="Get in touch" />
+                <Label
+                    as="h1"
+                    index="01"
+                    title="Contact"
+                    description="Available for freelance work and full-time roles."
+                />
             </Reveal>
-            <div className="w-full max-w-5xl px-4 grid lg:grid-cols-[1fr,1.3fr] gap-10 items-start">
-                <Reveal className="order-2 lg:order-1 flex flex-col gap-4">
-                    {
-                        channels.map((channel) => (
-                            <a
-                                key={channel.label}
-                                href={channel.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-blue-200 transition-all duration-300"
-                            >
-                                <span className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors duration-300">
-                                    <Image width={22} height={22} src={channel.icon} alt={`${channel.label} icon`} />
-                                </span>
-                                <span>
-                                    <span className="block font-semibold text-slate-900">{channel.label}</span>
-                                    <span className="block text-sm text-slate-500">{channel.description}</span>
-                                </span>
-                            </a>
-                        ))
-                    }
+            <div className="mt-12 grid lg:grid-cols-[1fr,1.4fr] gap-12 lg:gap-16 items-start">
+                <Reveal className="order-2 lg:order-1">
+                    <div className="border-t border-line">
+                        {
+                            channels.map((channel) => (
+                                <a
+                                    key={channel.label}
+                                    href={channel.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex items-center gap-4 py-5 border-b border-line"
+                                >
+                                    <Image
+                                        width={22}
+                                        height={22}
+                                        src={channel.icon}
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+                                    />
+                                    <span className="flex-1 min-w-0">
+                                        <span className="block font-display text-lg font-medium tracking-tight text-foreground transition-colors duration-200 group-hover:text-accent">
+                                            {channel.label}
+                                        </span>
+                                        <span className="block text-sm text-muted">{channel.description}</span>
+                                    </span>
+                                    <ArrowUpRight
+                                        size={17}
+                                        aria-hidden="true"
+                                        className="text-muted transition-all duration-200 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                    />
+                                </a>
+                            ))
+                        }
+                    </div>
+                    <p className="mt-8 text-sm leading-relaxed text-muted">
+                        Prefer email? Write directly to{" "}
+                        <a href="mailto:geraldrolland123@gmail.com" className="text-accent hover:underline">
+                            geraldrolland123@gmail.com
+                        </a>
+                    </p>
                 </Reveal>
                 <Reveal delay={0.1} className="order-1 lg:order-2">
                     <SubmitForm />
                 </Reveal>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default ContactMe;

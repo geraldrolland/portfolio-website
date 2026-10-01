@@ -1,11 +1,9 @@
 import Label from "./Label"
 import ExpCard from "./ExpCard";
-import houseIcon from "../public/house-logo.svg";
 import Reveal from "./motion";
 
 const experience = [
     {
-        logo: houseIcon,
         position: "Lead Software Engineer",
         company: "GlobalTech Institute",
         location: "Ikorodu, Lagos, Nigeria",
@@ -18,7 +16,6 @@ const experience = [
         ]
     },
     {
-        logo: houseIcon,
         position: "Software Engineer",
         company: "Lead Tech Institute",
         location: "Ikeja, Lagos, Nigeria",
@@ -34,32 +31,32 @@ const experience = [
 
 const Experience = () => {
     return (
-        <section className="w-full flex flex-col items-center gap-y-12">
+        <section className="w-full max-w-5xl mx-auto">
             <Reveal>
-                <Label title="Experience" description="My professional journey includes:" />
+                <Label
+                    as="h1"
+                    index="01"
+                    title="Experience"
+                    description="My professional journey, role by role."
+                />
             </Reveal>
-            <div className="relative max-w-3xl w-full px-4">
-                <Reveal y={0} className="absolute left-[15px] md:left-[19px] top-3 bottom-3">
-                    <span className="block w-0.5 h-full bg-blue-100 rounded-full"></span>
-                </Reveal>
-                <div className="flex flex-col gap-y-10">
-                    {
-                        experience.map(({ logo, position, company, location, duration, descriptions }) => (
-                            <ExpCard
-                                key={position}
-                                logo={logo}
-                                position={position}
-                                company={company}
-                                location={location}
-                                duration={duration}
-                                descriptions={descriptions}
-                            />
-                        ))
-                    }
-                </div>
+            <div className="mt-12 border-t border-line">
+                {
+                    experience.map((job, index) => (
+                        <ExpCard
+                            key={job.position}
+                            index={index}
+                            position={job.position}
+                            company={job.company}
+                            location={job.location}
+                            duration={job.duration}
+                            descriptions={job.descriptions}
+                        />
+                    ))
+                }
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Experience;

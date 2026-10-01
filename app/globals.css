@@ -1,31 +1,106 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
-html {
-    scroll-behavior: smooth;
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+    --background: #fafaf7;
+    --foreground: #1c1b18;
+    --muted: #6b675e;
+    --line: #e3e1da;
+    --accent: #c2410c;
+    --accent-hover: #9a3412;
+    --accent-contrast: #ffffff;
+    --accent-soft: rgb(194 65 12 / 0.08);
+    --card: #ffffff;
+    --card-foreground: #1c1b18;
+    --danger: #b91c1c;
+    --scroll-thumb: #cbc8bd;
 }
 
-body {
-    overflow-x: hidden;
+[data-theme="dark"] {
+    --background: #111110;
+    --foreground: #edede8;
+    --muted: #a09c92;
+    --line: #2e2d2a;
+    --accent: #f97316;
+    --accent-hover: #fb923c;
+    --accent-contrast: #17140f;
+    --accent-soft: rgb(249 115 22 / 0.12);
+    --card: #191917;
+    --card-foreground: #edede8;
+    --danger: #f87171;
+    --scroll-thumb: #3d3c37;
 }
 
-::selection {
-    background: rgb(37 99 235 / 0.15);
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --color-line: var(--line);
+    --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
+    --color-accent-contrast: var(--accent-contrast);
+    --color-accent-soft: var(--accent-soft);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-danger: var(--danger);
+    --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+    --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--background);
+        color: var(--foreground);
+        overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+        background: var(--accent);
+        color: var(--accent-contrast);
+    }
+
+    *:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--background);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--scroll-thumb);
+        border-radius: 8px;
+        border: 3px solid var(--background);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+    }
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f5f9;
-}
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 8px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

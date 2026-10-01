@@ -2,30 +2,33 @@
 
 import Label from "./Label";
 import myImage2 from "../public/my-image2.jpg";
-import PersonaImage from "./PersonaImage";
+import Image from "next/image";
 import Reveal from "./motion";
 import { MapPin, Mail, Code2, Briefcase } from "lucide-react";
 
-const paragraphs = {
-    whoIAm: [
-        "Hello! I'm Onyeka Gerald Ujowundu, a graduate of the ALX Software Engineering program with over four years of hands-on experience in designing, developing, and deploying scalable and secure software solutions. My work is driven by a passion for creating technology that not only solves real-world problems but also delivers a seamless, engaging experience for users.",
-        "Over the years, I've developed a strong foundation in system thinking and software architecture, allowing me to build systems that are both robust and efficient. My technical expertise spans frontend and backend development, where I focus on building engaging user interfaces supported by secure, high-performance backend systems. Whether it's crafting intuitive user experiences or optimizing APIs for large-scale applications, I approach every project with precision and a deep understanding of how systems interact end-to-end.",
-    ],
-    engineeringApproach: [
-        "I have extensive experience working with AWS cloud infrastructure, leveraging its tools and services to ensure high availability, scalability, and fault tolerance across deployments. I also have solid hands-on experience in containerization and orchestration using Docker and Kubernetes, enabling me to manage distributed applications effectively and streamline CI/CD workflows.",
-        "Beyond development, I'm deeply invested in system design and microservice architecture, breaking down monolithic applications into manageable, maintainable services that improve flexibility and reliability. My commitment to software quality is reinforced by my experience in unit testing and integration testing, ensuring that every component I build is reliable, maintainable, and production-ready.",
-        "I take pride in being a problem solver who thrives in dynamic, fast-paced environments. I enjoy tackling complex technical challenges whether it's optimizing performance bottlenecks, enhancing security, or designing scalable architectures that support growth and innovation.",
-    ],
-    beyondCode: [
-        "Collaboration is at the heart of how I work. I believe that great software is built through effective communication, teamwork, and shared vision. I value learning from others and contributing to a culture of continuous improvement, where ideas evolve through open discussion and experimentation.",
-        "My goal as a software engineer is to build impactful solutions that combine technical excellence with user-centric design, empowering individuals and businesses to achieve more through technology. I'm constantly learning, evolving, and seeking opportunities to push boundaries because technology never stands still, and neither do I.",
-    ],
-};
-
 const sections = [
-    { heading: "Who I Am", content: paragraphs.whoIAm },
-    { heading: "Engineering Approach", content: paragraphs.engineeringApproach },
-    { heading: "Beyond the Code", content: paragraphs.beyondCode },
+    {
+        heading: "Who I Am",
+        content: [
+            "Hello! I'm Onyeka Gerald Ujowundu, a graduate of the ALX Software Engineering program with over four years of hands-on experience designing, developing, and deploying scalable, secure software. I care about technology that solves real-world problems and delivers a seamless experience for the people who use it.",
+            "My work is grounded in system thinking and software architecture — whether I'm crafting intuitive user interfaces or optimizing APIs for scale, I approach every project with precision and an understanding of how systems interact end-to-end.",
+        ],
+    },
+    {
+        heading: "Engineering Approach",
+        content: [
+            "I have extensive experience with AWS cloud infrastructure, using its tools and services to ensure high availability, scalability, and fault tolerance across deployments. I'm also hands-on with containerization and orchestration through Docker and Kubernetes, managing distributed applications and streamlining CI/CD workflows.",
+            "Beyond development, I'm invested in system design and microservices — breaking monoliths into maintainable services that improve flexibility and reliability. My commitment to quality includes unit and integration testing, so every component I build is reliable and production-ready.",
+            "I thrive in dynamic, fast-paced environments — whether that's optimizing performance bottlenecks, enhancing security, or designing architectures that support growth.",
+        ],
+    },
+    {
+        heading: "Beyond the Code",
+        content: [
+            "Collaboration is at the heart of how I work. Great software is built through communication, teamwork, and shared vision — ideas evolve through open discussion and experimentation.",
+            "My goal is to build impactful solutions that combine technical excellence with user-centric design. I'm constantly learning and evolving, because technology never stands still — and neither do I.",
+        ],
+    },
 ];
 
 const quickFacts = [
@@ -37,25 +40,37 @@ const quickFacts = [
 
 const AboutMe = () => {
     return (
-        <div className="w-full flex flex-col items-center gap-y-12">
+        <div className="w-full max-w-5xl mx-auto">
             <Reveal>
-                <Label title="About Me" />
+                <Label
+                    as="h1"
+                    index="01"
+                    title="About"
+                    description="Who I am, how I work, and what drives me beyond the code."
+                />
             </Reveal>
-            <div className="w-full max-w-5xl px-4 flex flex-col lg:flex-row gap-12 items-start">
-                <Reveal className="w-full lg:w-[320px] shrink-0 flex flex-col items-center gap-6">
-                    <PersonaImage image={myImage2} />
-                    <div className="w-full grid grid-cols-1 gap-3">
+
+            <div className="mt-12 flex flex-col lg:flex-row gap-12 items-start">
+                <Reveal className="w-full lg:w-[300px] shrink-0 lg:sticky lg:top-24">
+                    <div className="relative w-full aspect-[4/5] overflow-hidden group">
+                        <Image
+                            src={myImage2}
+                            alt="Gerald Ujowundu"
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 300px"
+                            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                    </div>
+                    <div className="mt-6 border-t border-line">
                         {
                             quickFacts.map((fact) => {
                                 const Icon = fact.icon;
                                 return (
-                                    <div key={fact.label} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
-                                        <span className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
-                                            <Icon size={16} className="text-blue-600" />
-                                        </span>
+                                    <div key={fact.label} className="flex items-start gap-3 py-3.5 border-b border-line">
+                                        <Icon size={15} className="text-accent mt-0.5 shrink-0" aria-hidden="true" />
                                         <div className="min-w-0">
-                                            <p className="text-xs uppercase tracking-wide text-slate-500">{fact.label}</p>
-                                            <p className="text-sm font-medium text-slate-800 truncate">{fact.value}</p>
+                                            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">{fact.label}</p>
+                                            <p className="mt-1 text-sm text-foreground break-words">{fact.value}</p>
                                         </div>
                                     </div>
                                 );
@@ -63,28 +78,33 @@ const AboutMe = () => {
                         }
                     </div>
                 </Reveal>
+
                 <div className="flex-1 min-w-0">
                     {
                         sections.map((section, sectionIndex) => (
-                            <Reveal key={section.heading} delay={sectionIndex * 0.05} className="mb-8">
-                                <h3 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-3">
-                                    <span className="h-6 w-1 rounded-full bg-blue-600"></span>
+                            <Reveal key={section.heading} delay={sectionIndex * 0.05} className={sectionIndex > 0 ? "mt-10" : ""}>
+                                <h2 className="flex items-baseline gap-3 font-display text-2xl font-medium tracking-tight text-foreground">
+                                    <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent">
+                                        {String(sectionIndex + 1).padStart(2, "0")}
+                                    </span>
                                     {section.heading}
-                                </h3>
-                                {
-                                    section.content.map((paragraph) => (
-                                        <p key={paragraph.slice(0, 40)} className="text-[14px] leading-relaxed text-slate-600 mb-4">
-                                            {paragraph}
-                                        </p>
-                                    ))
-                                }
+                                </h2>
+                                <div className="mt-4 space-y-4">
+                                    {
+                                        section.content.map((paragraph) => (
+                                            <p key={paragraph.slice(0, 40)} className="text-[15px] leading-[1.75] text-muted">
+                                                {paragraph}
+                                            </p>
+                                        ))
+                                    }
+                                </div>
                             </Reveal>
                         ))
                     }
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default AboutMe;

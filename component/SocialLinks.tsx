@@ -1,21 +1,15 @@
 "use client";
 
-import { LuLinkedin } from "react-icons/lu";
-import { FiGithub } from "react-icons/fi";
-
-type SocialLinksPropType = {
-    variant?: "dark" | "light",
-};
+import { Github, Linkedin } from "lucide-react";
 
 const links = [
-    { label: "GitHub", href: "https://github.com/geraldrolland", Icon: FiGithub },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/onyeka-ujowundu-72b897246", Icon: LuLinkedin },
+    { label: "GitHub", href: "https://github.com/geraldrolland", Icon: Github },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/onyeka-ujowundu-72b897246", Icon: Linkedin },
 ];
 
-const SocialLinks = ({ variant = "dark" }: SocialLinksPropType) => {
-    const isLight = variant === "light";
+const SocialLinks = () => {
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
             {
                 links.map(({ label, href, Icon }) => (
                     <a
@@ -25,18 +19,14 @@ const SocialLinks = ({ variant = "dark" }: SocialLinksPropType) => {
                         rel="noopener noreferrer"
                         aria-label={label}
                         title={label}
-                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 ${
-                            isLight
-                                ? "text-slate-400 hover:text-white hover:bg-slate-800"
-                                : "text-slate-600 hover:text-blue-600 hover:bg-blue-50"
-                        }`}
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-muted transition-colors duration-200 hover:text-accent hover:bg-accent-soft"
                     >
                         <Icon size={18} />
                     </a>
                 ))
             }
         </div>
-    )
-}
+    );
+};
 
 export default SocialLinks;

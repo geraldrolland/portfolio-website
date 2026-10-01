@@ -38,11 +38,16 @@ const certifications = [
 
 const Certifications = () => {
     return (
-        <section className="w-full flex flex-col items-center gap-y-12">
+        <section className="w-full max-w-5xl mx-auto">
             <Reveal>
-                <Label title="Certifications" description="Certifications and courses I have completed:" />
+                <Label
+                    as="h1"
+                    index="01"
+                    title="Certifications"
+                    description="Credentials and courses I have completed."
+                />
             </Reveal>
-            <div className="w-full max-w-3xl flex flex-col items-center gap-y-5 px-4">
+            <div className="mt-12 border-t border-line">
                 {
                     certifications.map(({ logo, name, organization, issueDate, certificateUrl }) => (
                         <CertificateCard
@@ -57,7 +62,7 @@ const Certifications = () => {
                 }
             </div>
         </section>
-    )
+    );
 }
 
 export default Certifications;
