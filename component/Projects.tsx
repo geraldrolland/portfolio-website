@@ -1,6 +1,5 @@
 import Label from "./Label";
 import ProjectCard from "./ProjectCard";
-import movie24 from "../public/movie24_image.png";
 import ai_veriscope_img from "../public/ai_veriscope_img.png"
 import query_mind_landing_page_img from "../public/query_mind_landing_page_img.png"
 import meridian_demo_poster from "../public/meridian_demo_poster.png"
@@ -29,14 +28,6 @@ const projects = [
         technologies: ["Fastapi",  "postgresql", "Python", "Redis", "Celery", "OpenAI API", "Pandas", "Next.js", "TailwindCss", "MCP"],
         link: "https://query-mind-frontend.geraldrolland123.workers.dev",
         github: "https://github.com/geraldrolland/query_mind_frontend"
-    },
-    {
-        title: "Movie24",
-        description: "Movie24 is a fully responsive movie platform that offers a smooth and excellent user experience. Users can easily browse and search for movies, watch trailers, and download films for offline viewing. Designed for speed and functionality, Movie24 delivers seamless navigation across all devices.",
-        image: movie24,
-        technologies: ["React", "TypeScript", "CSS", "HTML", "TailwindCss", "tmdb API"],
-        link: "https://movie24-ui.vercel.app",
-        github: "https://github.com/geraldrolland/Movie24_Ui"
     },
 ]
 

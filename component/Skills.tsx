@@ -5,6 +5,7 @@ import JsIcon from '../public/javascript-logo.svg';
 import python from '../public/python-logo.svg';
 import nodejs from '../public/nodejs-logo.svg';
 import django from '../public/django-logo.svg';
+import fastapi from '../public/fastapi-logo.svg';
 import nextjs from '../public/nextjs-logo.svg';
 import react from '../public/react-logo.svg';
 import mongoDb from '../public/mongoDB-logo.svg';
@@ -50,6 +51,7 @@ const skillGroups: { category: string, items: Tech[] }[] = [
             { name: "Next.js", icon: nextjs },
             { name: "Node.js", icon: nodejs },
             { name: "Django", icon: django },
+            { name: "FastAPI", icon: fastapi },
         ],
     },
     {
