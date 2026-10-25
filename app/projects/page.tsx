@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Projects â€” Gerald Ujowundu",
-    description: "Explore projects built by Onyeka Gerald Ujowundu â€” MERIDIAN, AI Veriscope, QueryMind, and Movie24.",
+    description: "Explore projects built by Onyeka Gerald Ujowundu â€” MERIDIAN, AI Veriscope, and QueryMind.",
 };
 
 export default function ProjectPage() {
